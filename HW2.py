@@ -8,7 +8,7 @@ result_sum = item_1 + item_2
 # Print the result
 print(result_sum)
 # Subtract variables and print the result
-result_subtr = item_2 - item_2
+result_subtr = item_2 - item_1
 print(result_subtr)
 # Multiply variables and print the result
 result_multi = item_1 * item_2
@@ -41,10 +41,10 @@ print(result_m_ceil)
 result_int = int(result_division)
 print(result_int)
 # Divide item_1 to item_2 without division loss and print the result
-result_no_division_loss = int(item_1 / item_2)
+result_no_division_loss = item_1 // item_2
 print(result_no_division_loss)
 # Find division loss and print the result
-result_division_loss = result_division - result_no_division_loss
+result_division_loss = item_1 % item_2
 print(result_division_loss)
 # Create integer variable item_3
 item_3 = 10
