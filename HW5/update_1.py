@@ -45,6 +45,8 @@ def update(email, user_emails, user_storage):
             message = update_password(email, user_storage)
         elif param == "phone":
             message = update_phone(email, user_storage)
+        else:
+            message = "Incorrect parameter!"
     else:
         message = "No user with email: " + email
     return message
