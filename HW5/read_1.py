@@ -9,11 +9,13 @@ def msg_user_form(email, user_storage):
     return message
 
 
-def read_user_info(email, user_emails, user_storage):
+def read_info(email, user_emails, user_storage):
     if email in user_emails:
         return msg_user_form(email, user_storage)
+    elif email == "all":
+        message = all_user_info(user_storage)
     else:
-        message = "No user with email:", email
+        message = "No user with email: " + email
     return message
 
 
@@ -24,6 +26,6 @@ def all_user_info(user_storage):
                   + const.S_NAME + v["name"] + ", " \
                   + const.S_PASSWD + v["password"] + ", "\
                   + const.S_PHONE + v["phone"] + "\n"
-    return message
+    return message.rstrip()
 
 

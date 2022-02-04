@@ -16,5 +16,5 @@ def delete(email, user_emails, user_storage):
         if email in user_emails:
             message = delete_user(email, user_emails, user_storage)
         else:
-            message = "No user with email " + email
+            message = "No user with email: " + email
     return message

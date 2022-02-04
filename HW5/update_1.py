@@ -1,14 +1,18 @@
 import read_1
+import const
 
 
 def update_email(email, user_emails, user_storage):
-    new_email = input("Enter new email:")
-    for i in range(len(user_emails)):
-        if user_emails[i] == email:
-            user_emails[i] = new_email
-            break
-    user_storage[new_email] = user_storage.pop(email)
-    return read_1.msg_user_form(new_email, user_storage)
+    new_email = input("Enter new email: ")
+    if const.unique_check(new_email, user_emails):
+        for i in range(len(user_emails)):
+            if user_emails[i] == email:
+                user_emails[i] = new_email
+                break
+        user_storage[new_email] = user_storage.pop(email)
+        return read_1.msg_user_form(new_email, user_storage)
+    else:
+        return const.S_EXIST
 
 
 def update_name(email, user_storage):
@@ -38,9 +42,9 @@ def update(email, user_emails, user_storage):
         elif param == "name":
             message = update_name(email, user_storage)
         elif param == "password":
-            message = update_name(email, user_storage)
+            message = update_password(email, user_storage)
         elif param == "phone":
             message = update_phone(email, user_storage)
     else:
-        message = "No user with email:", email
+        message = "No user with email: " + email
     return message
